@@ -30,3 +30,23 @@ body {
   border: 1px solid gray;
   padding: 5px 0px;
 }
+
+.square {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-row {
+  display: flex;
+}
+.play-button {
+  width: 100%;
+  border: 1px solid;
+  padding: 3px 0px;
+  margin: 3px 0px;
+  border-radius: 5px;
+}
