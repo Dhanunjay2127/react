@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(168, 166, 166);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.todo {
+  background-color: white;
+  width: 300px;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.todo-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item {
+  margin-left: 5px;
+}
+
+.todo-button {
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgb(189, 188, 188);
+  border: 1px solid gray;
+  padding: 5px 0px;
+}
