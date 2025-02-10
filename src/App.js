@@ -9,7 +9,7 @@ import { CounterProvider } from "./components/context";
 function App() {
   return (
     <>
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div style={{ display: "flex", gap: "20px", maxWidth: "1200px", flexWrap: "wrap" }}>
         <CounterProvider>
           <div className="todo">
             <TodoUser />

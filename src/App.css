@@ -11,6 +11,7 @@ body {
 .todo {
   background-color: white;
   width: 300px;
+  min-height: 500px;
   border-radius: 10px;
   padding: 5px 15px;
 }
