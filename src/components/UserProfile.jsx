@@ -10,7 +10,6 @@ function UserProfile() {
 
   const handleClick = () => {
     getUserData().then((data) => {
-      console.log(data.results[0]);
       setUser(data.results[0]);
     });
   };
