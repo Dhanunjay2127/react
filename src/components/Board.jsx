@@ -61,7 +61,7 @@ function Board() {
           <Square onClick={() => handleClick(7)} value={state[7]} />
           <Square onClick={() => handleClick(8)} value={state[8]} />
         </div>
-        {winner && (
+        {(winner || empty) && (
           <button onClick={() => setState(Array(9).fill(null))} className="play-button">
             Play Again
           </button>
