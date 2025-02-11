@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Todo />} />
         <Route path="/board" element={<Board />} />
-        <Route path="/user" element={<UserProfile />} />
+        <Route path="/user/:name" element={<UserProfile />} />
         <Route path="/context" element={<ContextAcess />} />
       </Routes>
     </>
