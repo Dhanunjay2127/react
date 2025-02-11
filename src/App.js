@@ -9,22 +9,12 @@ import { CounterProvider } from "./components/context";
 function App() {
   return (
     <>
-      <div style={{ display: "flex", gap: "20px", maxWidth: "1200px", flexWrap: "wrap" }}>
-        <CounterProvider>
-          <div className="todo">
-            <TodoUser />
-            <h3>Todo list</h3>
-            <TodoList item="Eat" />
-            <TodoList item="Code" />
-            <TodoList item="Sleep" />
-            <TodoList item="Repeat" />
-            <button className="todo-button">Add item</button>
-          </div>
-          <Board />
-          <UserProfile />
-          <ContextAcess />
-        </CounterProvider>
-      </div>
+      <Routes>
+        <Route path="/" element={<Todo />} />
+        <Route path="/board" element={<Board />} />
+        <Route path="/user/:name" element={<UserProfile />} />
+        <Route path="/context" element={<ContextAcess />} />
+      </Routes>
     </>
   );
 }

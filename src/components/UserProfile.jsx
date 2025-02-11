@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import getUserData from "./UserProfileApi";
+import { useSearchParams, useParams } from "react-router-dom";
 
 function UserProfile() {
   const [user, setUser] = useState(null);
+  const [searchParams] = useSearchParams();
+  console.log("user attributes ", useParams());
+  console.log("query strings ", searchParams.get("id"));
+  //http://localhost:3000/user/dhanunjaya?id=1
 
   useEffect(() => {
     getUserData().then((data) => setUser(data.results[0]));
