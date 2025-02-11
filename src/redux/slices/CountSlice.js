@@ -10,7 +10,6 @@ const countSlice = createSlice({
   initialState: 0,
   reducers: {
     increment: (state, action) => {
-      console.log(state, action.payload);
       return state + action.payload;
     },
     decrement: (state, action) => {
@@ -24,7 +23,6 @@ const userSlice = createSlice({
   initialState: {},
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
-      console.log("HERE", action.payload.results[0]);
       state.user = action.payload.results[0];
     });
     builder.addCase(fetchData.rejected, (state, action) => {
