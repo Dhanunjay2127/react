@@ -46,7 +46,6 @@ body {
 .board-row {
   display: flex;
 }
-
 .play-button {
   width: 100%;
   border: 1px solid;
