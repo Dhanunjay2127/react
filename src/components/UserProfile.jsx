@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from "react";
-import getUserData from "./UserProfileApi";
+import React, { useEffect } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../redux/slices/CountSlice";
 
 function UserProfile() {
-  const [user, setUser] = useState(null);
   const [searchParams] = useSearchParams();
   console.log("user attributes ", useParams());
   console.log("query strings ", searchParams.get("id"));
   //http://localhost:3000/user/dhanunjaya?id=1
+  const dispatch = useDispatch();
+  let userData = useSelector((state) => state);
+  userData = userData.user.user;
 
   useEffect(() => {
-    getUserData().then((data) => setUser(data.results[0]));
-  }, []);
+    dispatch(fetchData());
+  }, [dispatch]);
 
   const handleClick = () => {
-    getUserData().then((data) => {
-      setUser(data.results[0]);
-    });
+    dispatch(fetchData());
   };
 
   return (
     <>
-      {user && (
+      {userData && (
         <div className="todo" style={{ textAlign: "center" }}>
           <h3>
-            {user.name.title}. {user.name.first} {user.name.last}
+            {userData.name.title}. {userData.name.first} {userData.name.last}
           </h3>
-          <p>{user.phone}</p>
+          <p>{userData.phone}</p>
           <p>
-            {user.location.street.name}, {user.location.city}, {user.location.state}
+            {userData.location.street.name}, {userData.location.city}, {userData.location.state}
           </p>
           <button onClick={handleClick} className="next-user">
             Next User

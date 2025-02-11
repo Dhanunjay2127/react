@@ -1,4 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const fetchData = createAsyncThunk("fetchData", async () => {
+  let user = await fetch("https://randomuser.me/api/");
+  return user.json();
+});
 
 const countSlice = createSlice({
   name: "count",
@@ -14,5 +19,20 @@ const countSlice = createSlice({
   },
 });
 
+const userSlice = createSlice({
+  name: "user",
+  initialState: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchData.fulfilled, (state, action) => {
+      console.log("HERE", action.payload.results[0]);
+      state.user = action.payload.results[0];
+    });
+    builder.addCase(fetchData.rejected, (state, action) => {
+      state.err = action.payload.error;
+    });
+  },
+});
+
 export const { increment, decrement } = countSlice.actions;
-export default countSlice.reducer;
+export const counterReduce = countSlice.reducer;
+export const userReducer = userSlice.reducer;
